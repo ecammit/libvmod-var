@@ -85,10 +85,11 @@ static struct var * vh_get_var_alloc(struct var_head *vh, const char *name, stru
 int
 init_function(struct vmod_priv *priv, const struct VCL_conf *conf)
 {
+	int i;
 	var_list_sz = 256;
 	var_list = malloc(sizeof(struct var_head *) * 256);
 	AN(var_list);
-	for (int i = 0 ; i < var_list_sz; i++) {
+	for (i = 0 ; i < var_list_sz; i++) {
 		var_list[i] = malloc(sizeof(struct var_head));
 		vh_init(var_list[i]);
 	}
